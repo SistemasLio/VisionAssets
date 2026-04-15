@@ -1,0 +1,43 @@
+# Matriz de rastreabilidade
+
+Ligue **requisitos de negócio** a **épicos/PBIs/US** e, quando o código existir, a **módulos/commits/tags**.
+
+## Legenda
+
+| Coluna | Conteúdo |
+|--------|----------|
+| REQ | ID em [REQUIREMENTS.md](../business/REQUIREMENTS.md) |
+| Épico / PBI | IDs em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md) |
+| US | User story (quando criada em `docs/product/stories/`) |
+| Implementação | Pastas, projetos ou PRs — preencher após código |
+
+## Matriz (MVP)
+
+| REQ | Épico | PBI | US | Implementação |
+|-----|-------|-----|----|----------------|
+| REQ-001 | EPIC-004 | PBI-030 | US-001 | — |
+| REQ-002 | EPIC-004 | PBI-030, PBI-032 | — | — |
+| REQ-003 | EPIC-001 | PBI-001 | — | — |
+| REQ-004 | EPIC-003 | PBI-020 | US-002 | — |
+| REQ-005 | EPIC-003 | PBI-021 | US-003 | — |
+| REQ-006 | EPIC-002 | PBI-010, PBI-011 | — | — |
+| REQ-007 | EPIC-002 | PBI-010 | — | — |
+| REQ-008 | EPIC-003 | PBI-021 | — | — |
+| REQ-009 | EPIC-003 | PBI-023 | — | — |
+| REQ-010 | EPIC-005 | PBI-040 | — | — |
+| REQ-011 | EPIC-001 | PBI-003 | US-004 | — |
+| REQ-012 | EPIC-005 | PBI-041 | — | — |
+
+## Requisitos não funcionais
+
+| REQ | Como verificar | Evidência |
+|-----|----------------|-----------|
+| REQ-NF-001 | Teste de instalação em VM domain-joined | Link para runbook ou anexo |
+| REQ-NF-002 | Revisão de campos e política de mascaramento | ADR ou doc de segurança |
+| REQ-NF-003 | Medição em piloto | Métricas no changelog ou relatório |
+| REQ-NF-004 | Esta matriz + PRs com IDs | Este arquivo |
+
+## Manutenção
+
+- Atualizar **uma linha por REQ** quando PBI/US mudarem.
+- Para cada release, revisar se todos os REQ **Must** do escopo estão cobertos ou explicitamente adiados.
