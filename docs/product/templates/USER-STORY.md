@@ -29,6 +29,7 @@ para **<benefício>**.
 - [ ] Testes adequados passando
 - [ ] Documentação atualizada (README técnico ou docs afetados)
 - [ ] `docs/overview/CHANGELOG.md` atualizado se houver mudança visível
+- [ ] [docs/qa/HOW-TO-TEST.md](../../qa/HOW-TO-TEST.md) e/ou [docs/qa/USE-CASES.md](../../qa/USE-CASES.md) atualizados se houver novo comportamento a validar
 - [ ] TRACEABILITY-MATRIX.md atualizado
 
 ### Tasks sugeridas

@@ -23,6 +23,7 @@ Ferramenta para **inventário de hardware e software** em estações Windows, co
 | [Produto](/product/ROADMAP) | Roadmap e backlog |
 | [Técnico](/technical/ARCHITECTURE) | Arquitetura, stack, modelo de dados, coleta WMI/Registry |
 | [Rastreio](/traceability/TRACEABILITY-MATRIX) | Requisitos ↔ entregas |
+| [QA](/qa/README) | Estratégia de testes, casos de uso, como testar, retrospectiva |
 
 ## Edição
 

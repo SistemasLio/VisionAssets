@@ -15,6 +15,7 @@ Agente Windows (planejado) para inventário de hardware e software, com backend 
 | Governança (IDs, backlog, changelog) | [docs/GOVERNANCE.md](docs/GOVERNANCE.md) |
 | Agentes de IA (Cursor) | [docs/overview/AGENTS.md](docs/overview/AGENTS.md) |
 | Changelog | [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md) |
+| QA (testes, UC, como testar) | [docs/qa/README.md](docs/qa/README.md) |
 
 ## Desenvolvimento do site de docs
 

@@ -31,6 +31,7 @@ Aplicação **Windows** instalável via **MSI**, pensada para **implantação em
 | Épicos / backlog / rastreabilidade | [product/ROADMAP.md](../product/ROADMAP.md) |
 | Decisões arquiteturais (ADRs) | [decisions/README.md](../decisions/README.md) |
 | Changelog | [CHANGELOG.md](CHANGELOG.md) |
+| QA e testes | [qa/README.md](../qa/README.md) |
 
 ## Decisões já registradas (alto nível)
 

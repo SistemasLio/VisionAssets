@@ -9,6 +9,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Added
 
+- Documentação de **QA**: pasta `docs/qa/` (estratégia, casos de uso UC-xxx, como testar TC-xxx, retrospectiva); diretriz em [GOVERNANCE.md](../GOVERNANCE.md); portal VitePress e índices atualizados.
 - **EPIC-002**: biblioteca `src/VisionAssets.Persistence` (SQLite + Dapper), migração `001_initial.sql` (tabelas `machine`, `hardware_component`, `installed_software`, `license_record`, `inventory_run`), `IMigrationRunner`, `MachineRepository`, `InventoryRunRepository`; arranque aplica migrações pendentes; `Agent:DatabasePath` e ficheiro por defeito em `Data/` ou `%ProgramData%\VisionAssets\Data\`.
 - **EPIC-001**: projeto `src/VisionAssets.Agent` (.NET 8 Worker), `AddWindowsService` (“VisionAssets Agent”), Serilog (console + arquivo com rotação diária), `Agent:HeartbeatIntervalMinutes` e `Agent:LogsDirectory`, `ContentRoot` = pasta do executável.
 - Solução `VisionAssets.slnx` na raiz do repositório.

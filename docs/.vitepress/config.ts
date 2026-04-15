@@ -58,6 +58,16 @@ export default withMermaid(
           ],
         },
         {
+          text: 'QA e validação',
+          items: [
+            { text: 'Visão geral QA', link: '/qa/README' },
+            { text: 'Estratégia de testes', link: '/qa/TEST-STRATEGY' },
+            { text: 'Casos de uso', link: '/qa/USE-CASES' },
+            { text: 'Como testar', link: '/qa/HOW-TO-TEST' },
+            { text: 'Retrospectiva', link: '/qa/RETROSPECTIVE' },
+          ],
+        },
+        {
           text: 'Técnico',
           items: [
             { text: 'Arquitetura', link: '/technical/ARCHITECTURE' },

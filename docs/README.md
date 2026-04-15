@@ -22,6 +22,16 @@ Versão navegável no site: [sistemaslio.github.io/VisionAssets](https://sistema
 | [product/templates/USER-STORY.md](product/templates/USER-STORY.md) | Template de história de usuário |
 | [product/stories/README.md](product/stories/README.md) | Histórias detalhadas (`US-NNN-*.md`) |
 
+## QA e validação
+
+| Documento | Conteúdo |
+|-----------|----------|
+| [qa/README.md](qa/README.md) | Diretriz de QA, índice |
+| [qa/TEST-STRATEGY.md](qa/TEST-STRATEGY.md) | Estratégia e níveis de teste |
+| [qa/USE-CASES.md](qa/USE-CASES.md) | Casos de uso (UC-xxx) |
+| [qa/HOW-TO-TEST.md](qa/HOW-TO-TEST.md) | Como testar, casos de teste (TC-xxx) |
+| [qa/RETROSPECTIVE.md](qa/RETROSPECTIVE.md) | Retrospectiva de entregas e validação |
+
 ## Técnico
 
 | Documento | Conteúdo |

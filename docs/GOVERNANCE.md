@@ -43,6 +43,17 @@ Use IDs **estáveis** e **únicos** no repositório. Formato sugerido:
 | Ligação req → código | `docs/traceability/TRACEABILITY-MATRIX.md` |
 | Decisão com alternativas | `docs/decisions/ADR-NNN-*.md` |
 | Release e mudanças | `docs/overview/CHANGELOG.md` + tag Git |
+| QA, casos de uso, como testar | `docs/qa/` — ver [qa/README.md](qa/README.md) |
+
+## Qualidade (QA) — diretriz
+
+Toda entrega com **comportamento ou dados** observáveis pelo utilizador ou operador deve:
+
+1. Atualizar ou criar cenários em [qa/HOW-TO-TEST.md](qa/HOW-TO-TEST.md) quando mudar fluxo de validação.
+2. Ajustar [qa/USE-CASES.md](qa/USE-CASES.md) ou [qa/TEST-STRATEGY.md](qa/TEST-STRATEGY.md) quando surgirem novos objetivos de teste ou níveis automatizados.
+3. Registar marcos relevantes em [qa/RETROSPECTIVE.md](qa/RETROSPECTIVE.md).
+
+Pull requests que alterem só documentação de QA devem referenciar o âmbito (`QA: …`).
 
 ## User Story — campos mínimos
 
@@ -52,6 +63,7 @@ Ver [product/templates/USER-STORY.md](product/templates/USER-STORY.md). Todo US 
 - Vínculo a épico/PBI (`EPIC-xxx`, `PBI-xxx`)
 - Critérios de aceite testáveis
 - Rastreio a requisitos (`REQ-xxx`) quando aplicável
+- Ligação a casos de teste (`TC-xxx` em [qa/HOW-TO-TEST.md](qa/HOW-TO-TEST.md)) ou nota explícita “N/A” quando não houver verificação adicional
 
 ## Changelog
 

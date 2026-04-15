@@ -12,7 +12,7 @@ Use este arquivo junto com [CONTEXT.md](CONTEXT.md) para alinhar comportamento n
 
 | Situação | Ação |
 |----------|------|
-| Nova funcionalidade | User story ou task referenciada; atualizar [TRACEABILITY-MATRIX.md](../traceability/TRACEABILITY-MATRIX.md) |
+| Nova funcionalidade | User story ou task referenciada; atualizar [TRACEABILITY-MATRIX.md](../traceability/TRACEABILITY-MATRIX.md); atualizar [qa/HOW-TO-TEST.md](../qa/HOW-TO-TEST.md) e [qa/USE-CASES.md](../qa/USE-CASES.md) quando aplicável |
 | Decisão técnica com trade-offs | Novo ADR em `docs/decisions/` |
 | Mudança visível ao usuário ou operação | Entrada em [CHANGELOG.md](CHANGELOG.md) |
 | Alteração de requisito de negócio | [REQUIREMENTS.md](../business/REQUIREMENTS.md) + matriz de rastreabilidade |
