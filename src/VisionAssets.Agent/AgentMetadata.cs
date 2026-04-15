@@ -2,7 +2,7 @@ using System.Reflection;
 
 namespace VisionAssets.Agent;
 
-internal static class AgentMetadata
+public static class AgentMetadata
 {
     public static string Version =>
         typeof(AgentMetadata).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion

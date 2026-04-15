@@ -3,6 +3,7 @@ using Serilog;
 using Serilog.Events;
 using VisionAssets.Agent;
 using VisionAssets.Persistence;
+using VisionAssets.Sync;
 
 // Serviço Windows: diretório de trabalho pode ser System32; usar pasta do executável.
 var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
@@ -21,6 +22,10 @@ builder.Services
     .Bind(builder.Configuration.GetSection(AgentOptions.SectionName))
     .Validate(o => o.HeartbeatIntervalMinutes is >= 1 and <= 24 * 60, "Agent:HeartbeatIntervalMinutes deve estar entre 1 e 1440.")
     .ValidateOnStart();
+
+builder.Services
+    .AddOptions<BackendOptions>()
+    .Bind(builder.Configuration.GetSection(BackendOptions.SectionName));
 
 var agentSection = builder.Configuration.GetSection(AgentOptions.SectionName);
 var agentOpts = agentSection.Get<AgentOptions>() ?? new AgentOptions();
@@ -53,6 +58,7 @@ builder.Services.AddVisionAssetsPersistence(_ =>
     return $"Data Source={databasePath};Cache=Shared";
 });
 
+builder.Services.AddVisionAssetsSync();
 builder.Services.AddSingleton<InventoryOrchestrator>();
 builder.Services.AddHostedService<AgentWorker>();
 

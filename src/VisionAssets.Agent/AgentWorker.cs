@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using VisionAssets.Persistence;
+using VisionAssets.Sync;
 
 namespace VisionAssets.Agent;
 
@@ -11,19 +12,22 @@ public sealed class AgentWorker : BackgroundService
     private readonly IMachineRepository _machine;
     private readonly IInventoryRunRepository _inventory;
     private readonly InventoryOrchestrator _orchestrator;
+    private readonly InventorySyncCoordinator _sync;
 
     public AgentWorker(
         ILogger<AgentWorker> logger,
         IOptionsMonitor<AgentOptions> options,
         IMachineRepository machine,
         IInventoryRunRepository inventory,
-        InventoryOrchestrator orchestrator)
+        InventoryOrchestrator orchestrator,
+        InventorySyncCoordinator sync)
     {
         _logger = logger;
         _options = options;
         _machine = machine;
         _inventory = inventory;
         _orchestrator = orchestrator;
+        _sync = sync;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -39,6 +43,7 @@ public sealed class AgentWorker : BackgroundService
             _logger.LogInformation("Heartbeat: próximo ciclo em {Interval} minutos.", minutes);
 
             await RecordInventoryRunAsync(stoppingToken).ConfigureAwait(false);
+            await _sync.ProcessOutboxAsync(stoppingToken).ConfigureAwait(false);
 
             try
             {
@@ -60,8 +65,9 @@ public sealed class AgentWorker : BackgroundService
         {
             var machineId = await _machine.GetOrCreateLocalMachineIdAsync(cancellationToken).ConfigureAwait(false);
             runId = await _inventory.StartRunAsync(machineId, AgentMetadata.Version, cancellationToken).ConfigureAwait(false);
-            await _orchestrator.RunAsync(machineId, cancellationToken).ConfigureAwait(false);
+            var collection = await _orchestrator.RunAsync(machineId, cancellationToken).ConfigureAwait(false);
             await _inventory.CompleteRunAsync(runId, true, null, cancellationToken).ConfigureAwait(false);
+            await _sync.TrySendAfterInventoryAsync(machineId, runId, AgentMetadata.Version, collection, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)
         {

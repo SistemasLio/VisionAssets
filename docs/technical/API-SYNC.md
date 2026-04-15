@@ -24,6 +24,15 @@ Visão de conjunto para **REQ-012**: agente envia snapshots de inventário a um 
 
 Escala prevista (~400 máquinas, 2–3 execuções por semana): sem requisito de compressão no primeiro incremento; pode ser acrescentada depois.
 
-## Próximos passos de implementação
+## Implementação no agente (repositório VisionAssets)
 
-Ver **EPIC-006** em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md) (PBIs de API, Entra e agente). Implementação da API: **outro repositório**; PBIs PBI-051 em diante referem-se a esse projeto.
+- Biblioteca **`VisionAssets.Sync`**: MSAL (`MsalAccessTokenProvider`), `InventoryHttpSyncClient`, `InventorySyncCoordinator`, `EntraDeviceIdReader`, DTOs alinhados ao OpenAPI.
+- Configuração **`Backend`** em `appsettings.json` (`Enabled` por defeito `false`). Secretos: `dotnet user-secrets` ou variáveis de ambiente em produção.
+- Tabela SQLite **`sync_outbox`** (migração `002`): retry com `OutboxMaxAttempts`.
+
+## Próximos passos
+
+- **API** noutro repositório (PBI-051) — validar JWT e `POST /v1/inventory-snapshots`.
+- **Entra** (PBI-050): app registrations e consentimento.
+
+Ver **EPIC-006** em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md).

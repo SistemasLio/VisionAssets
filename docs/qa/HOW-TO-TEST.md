@@ -110,6 +110,19 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 
 ---
 
+## TC-SYNC-01 — Backend desativado (por defeito)
+
+**UC:** US-005 (preparação)
+
+1. Confirmar em `appsettings.json` ou `appsettings.Development.json` que `Backend:Enabled` é `false` (ou ausente).
+2. `dotnet run --project src/VisionAssets.Agent` e completar pelo menos um ciclo de inventário.
+3. Confirmar que **não** há erros MSAL/HTTP nos logs (comportamento esperado: sync não corre).
+4. Opcional: com API de testes e `Backend:Enabled` = `true`, credenciais Entra em User Secrets e `BaseUrl` apontando ao servidor — verificar `sync_outbox` e/ou logs de envio (cenário avançado).
+
+**Resultado esperado:** agente estável com sync desligado; quando ativado, fila local e retry conforme [API-SYNC.md](../technical/API-SYNC.md).
+
+---
+
 ## TC-BUILD-01 — Compilação da solução
 
 1. Na raiz: `dotnet build`
@@ -127,3 +140,4 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 - [ ] TC-INV-02 (se alterou coleta WMI/Registry ou snapshots)
 - [ ] TC-DOC-01 (se alterou `docs/` ou VitePress)
 - [ ] TC-MSI-01 (se alterou WiX, MSI ou [DEPLOYMENT.md](../technical/DEPLOYMENT.md))
+- [ ] TC-SYNC-01 (se alterou `VisionAssets.Sync`, `Backend:*` ou migração `sync_outbox`)

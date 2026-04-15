@@ -13,6 +13,7 @@ Valores abaixo são **padrão sugerido** até fixação por ADR.
 | Migrações | SQL embutido + `schema_migrations` | `MigrationRunner`, ficheiros `Migrations/00N_*.sql`. |
 | Logs | **Serilog** (arquivo + opcional Event Log) | |
 | MSI | **WiX Toolset** v5 (`installer/VisionAssets.Installer`) | [ADR-001](../decisions/ADR-001-wix-msi-framework-dependent.md). |
+| Sync / Entra ID | **MSAL.NET** + HTTPS (`VisionAssets.Sync`) | [ADR-002](../decisions/ADR-002-entra-id-central-api.md); API noutro repositório ([ADR-003](../decisions/ADR-003-api-repository-separate.md)). |
 | Testes | xUnit + testes de integração com SQLite in-memory | |
 
 ## Build e CI

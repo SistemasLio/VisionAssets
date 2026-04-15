@@ -15,6 +15,7 @@ public static class PersistenceServiceCollectionExtensions
         services.AddSingleton<IMachineRepository, MachineRepository>();
         services.AddSingleton<IInventoryRunRepository, InventoryRunRepository>();
         services.AddSingleton<IInventoryDataRepository, InventoryDataRepository>();
+        services.AddSingleton<ISyncOutboxRepository, SyncOutboxRepository>();
         return services;
     }
 }

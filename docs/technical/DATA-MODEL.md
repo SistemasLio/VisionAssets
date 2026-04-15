@@ -66,6 +66,22 @@ Identifica o endpoint.
 | agent_version | TEXT | |
 | error_message | TEXT | sanitizado |
 
+### SyncOutbox (migração `002`)
+
+Fila local de envio ao API central; ver [ADR-002](../decisions/ADR-002-entra-id-central-api.md), projeto `VisionAssets.Sync`.
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | TEXT PK | |
+| machine_id | TEXT FK | |
+| inventory_run_id | TEXT | par único com `machine_id` |
+| payload_json | TEXT | snapshot JSON a enviar |
+| status | TEXT | `pending`, `abandoned` após max tentativas |
+| created_at | TEXT | |
+| last_attempt_at | TEXT | |
+| attempt_count | INTEGER | |
+| last_error | TEXT | |
+
 ## Índices sugeridos
 
 - `InstalledSoftware(machine_id, name, version, publisher)`
