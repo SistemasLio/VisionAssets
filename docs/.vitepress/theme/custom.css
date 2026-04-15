@@ -1,0 +1,28 @@
+/**
+ * Tema sóbrio: tipografia do sistema, acento azul-acinzentado.
+ * Evita gradientes e paletas genéricas de “landing”.
+ */
+:root {
+  --vp-c-brand-1: #1d4f7c;
+  --vp-c-brand-2: #2563ab;
+  --vp-c-brand-3: #3d7a5c;
+  --vp-c-bg: #fafafa;
+  --vp-font-family-base:
+    'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --vp-font-family-mono:
+    'Cascadia Code', 'Consolas', ui-monospace, monospace;
+}
+
+.dark {
+  --vp-c-brand-1: #6eb3e0;
+  --vp-c-brand-2: #7cb8ff;
+}
+
+.VPNavBarTitle .title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.VPDoc .content {
+  max-width: 52rem;
+}

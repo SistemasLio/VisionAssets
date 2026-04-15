@@ -19,4 +19,4 @@ Valores abaixo são **padrão sugerido** até fixação por ADR.
 
 - `dotnet build` / `dotnet test`
 - Artefato: MSI em pasta `artifacts/`
-- Versionamento alinhado a `CHANGELOG.md` e tags `v*`
+- Versionamento alinhado a `docs/overview/CHANGELOG.md` e tags `v*`

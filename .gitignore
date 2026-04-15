@@ -45,3 +45,9 @@ $RECYCLE.BIN/
 *.key
 appsettings.*.local.json
 secrets.json
+
+# Node (site de documentação VitePress)
+node_modules/
+docs/.vitepress/cache
+docs/.vitepress/dist
+node_modules

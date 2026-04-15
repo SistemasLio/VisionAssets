@@ -28,7 +28,7 @@ para **<benefício>**.
 - [ ] Código revisado
 - [ ] Testes adequados passando
 - [ ] Documentação atualizada (README técnico ou docs afetados)
-- [ ] CHANGELOG.md atualizado se houver mudança visível
+- [ ] `docs/overview/CHANGELOG.md` atualizado se houver mudança visível
 - [ ] TRACEABILITY-MATRIX.md atualizado
 
 ### Tasks sugeridas

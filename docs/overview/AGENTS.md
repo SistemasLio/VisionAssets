@@ -4,7 +4,7 @@ Use este arquivo junto com [CONTEXT.md](CONTEXT.md) para alinhar comportamento n
 
 ## Prioridades
 
-1. **Rastreabilidade**: toda mudança de escopo ou técnica relevante deve refletir em documentação (`docs/`, `CHANGELOG.md`) conforme [docs/GOVERNANCE.md](docs/GOVERNANCE.md).
+1. **Rastreabilidade**: toda mudança de escopo ou técnica relevante deve refletir em documentação (`docs/`, [CHANGELOG.md](CHANGELOG.md)) conforme [GOVERNANCE.md](../GOVERNANCE.md).
 2. **Escopo mínimo**: não expandir o MVP sem registro em backlog (épico/PBI/US) ou decisão (ADR).
 3. **Consistência**: IDs de trabalho (`EPIC-xxx`, `US-xxx`, `TASK-xxx`) e links entre documentos.
 
@@ -12,14 +12,14 @@ Use este arquivo junto com [CONTEXT.md](CONTEXT.md) para alinhar comportamento n
 
 | Situação | Ação |
 |----------|------|
-| Nova funcionalidade | User story ou task referenciada; atualizar [docs/traceability/TRACEABILITY-MATRIX.md](docs/traceability/TRACEABILITY-MATRIX.md) |
+| Nova funcionalidade | User story ou task referenciada; atualizar [TRACEABILITY-MATRIX.md](../traceability/TRACEABILITY-MATRIX.md) |
 | Decisão técnica com trade-offs | Novo ADR em `docs/decisions/` |
 | Mudança visível ao usuário ou operação | Entrada em [CHANGELOG.md](CHANGELOG.md) |
-| Alteração de requisito de negócio | [docs/business/REQUIREMENTS.md](docs/business/REQUIREMENTS.md) + matriz de rastreabilidade |
+| Alteração de requisito de negócio | [REQUIREMENTS.md](../business/REQUIREMENTS.md) + matriz de rastreabilidade |
 
 ## Estrutura de pastas de código (quando existir)
 
-- Manter espelho lógico: `src/`, `tests/`, `build/` — documentar em [docs/technical/ARCHITECTURE.md](docs/technical/ARCHITECTURE.md) quando a primeira árvore for criada.
+- Manter espelho lógico: `src/`, `tests/`, `build/` — documentar em [ARCHITECTURE.md](../technical/ARCHITECTURE.md) quando a primeira árvore for criada.
 
 ## Idioma
 

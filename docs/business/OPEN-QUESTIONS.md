@@ -1,6 +1,6 @@
 # Questões em aberto (para decisão)
 
-Registro vivo de **decisões pendentes**; ao fechar, mover resumo para [../decisions/](../decisions/) (ADR) e remover ou marcar como resolvido aqui.
+Registro vivo de **decisões pendentes**; ao fechar, mover resumo para [decisions/README.md](../decisions/README.md) (ADR) e remover ou marcar como resolvido aqui.
 
 | ID | Tema | Opções | Impacto | Responsável sugerido |
 |----|------|--------|---------|----------------------|

@@ -74,4 +74,4 @@ Identifica o endpoint.
 
 ## Decisão registrada
 
-- **D-001**: SQLite como store local no MVP — ver [CONTEXT.md](../../CONTEXT.md).
+- **D-001**: SQLite como store local no MVP — ver [CONTEXT.md](../overview/CONTEXT.md).

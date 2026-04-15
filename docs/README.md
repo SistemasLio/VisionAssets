@@ -1,6 +1,8 @@
 # Documentação VisionAssets
 
-Índice navegável. Convenções de IDs e fluxo de trabalho: [GOVERNANCE.md](GOVERNANCE.md).
+Versão navegável no site: [sistemaslio.github.io/VisionAssets](https://sistemaslio.github.io/VisionAssets/) (build com VitePress a partir desta pasta).
+
+Índice em tabela abaixo. Convenções de IDs e fluxo de trabalho: [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Negócio
 
@@ -18,7 +20,7 @@
 | [product/ROADMAP.md](product/ROADMAP.md) | Fases e marcos |
 | [product/BACKLOG-OVERVIEW.md](product/BACKLOG-OVERVIEW.md) | Épicos, PBIs e vínculos |
 | [product/templates/USER-STORY.md](product/templates/USER-STORY.md) | Template de história de usuário |
-| [product/stories/](product/stories/) | Histórias detalhadas (`US-NNN-*.md`) |
+| [product/stories/README.md](product/stories/README.md) | Histórias detalhadas (`US-NNN-*.md`) |
 
 ## Técnico
 
@@ -41,5 +43,5 @@
 
 | Documento | Conteúdo |
 |-----------|----------|
-| [../CHANGELOG.md](../CHANGELOG.md) | Histórico versionado do projeto |
+| [overview/CHANGELOG.md](overview/CHANGELOG.md) | Histórico versionado do projeto |
 | [changelog/README.md](changelog/README.md) | Como escrever entradas |

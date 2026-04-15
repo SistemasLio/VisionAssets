@@ -24,21 +24,21 @@ Aplicação **Windows** instalável via **MSI**, pensada para **implantação em
 
 | Área | Onde |
 |------|------|
-| Índice geral | [docs/README.md](docs/README.md) |
-| Governança e IDs | [docs/GOVERNANCE.md](docs/GOVERNANCE.md) |
-| Visão e requisitos de negócio | [docs/business/](docs/business/) |
-| Arquitetura e stack | [docs/technical/](docs/technical/) |
-| Épicos / backlog / rastreabilidade | [docs/product/](docs/product/) |
-| Decisões arquiteturais (ADRs) | [docs/decisions/](docs/decisions/) |
+| Índice geral | [README.md](../README.md) |
+| Governança e IDs | [GOVERNANCE.md](../GOVERNANCE.md) |
+| Visão e requisitos de negócio | [business/VISION.md](../business/VISION.md) |
+| Arquitetura e stack | [technical/ARCHITECTURE.md](../technical/ARCHITECTURE.md) |
+| Épicos / backlog / rastreabilidade | [product/ROADMAP.md](../product/ROADMAP.md) |
+| Decisões arquiteturais (ADRs) | [decisions/README.md](../decisions/README.md) |
 | Changelog | [CHANGELOG.md](CHANGELOG.md) |
 
 ## Decisões já registradas (alto nível)
 
 | ID | Decisão | Onde detalhar |
 |----|---------|----------------|
-| D-001 | SQLite como BD local no MVP | [docs/technical/DATA-MODEL.md](docs/technical/DATA-MODEL.md) |
-| D-002 | Coleta WMI/CIM + Registry; evitar `Win32_Product` em rotina | [docs/technical/INVENTORY-COLLECTION.md](docs/technical/INVENTORY-COLLECTION.md) |
-| D-003 | Licenças: detecção parcial + campos manuais/importação | [docs/business/REQUIREMENTS.md](docs/business/REQUIREMENTS.md) |
+| D-001 | SQLite como BD local no MVP | [DATA-MODEL.md](../technical/DATA-MODEL.md) |
+| D-002 | Coleta WMI/CIM + Registry; evitar `Win32_Product` em rotina | [INVENTORY-COLLECTION.md](../technical/INVENTORY-COLLECTION.md) |
+| D-003 | Licenças: detecção parcial + campos manuais/importação | [REQUIREMENTS.md](../business/REQUIREMENTS.md) |
 
 ## Como atualizar este arquivo
 

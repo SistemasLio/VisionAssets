@@ -42,7 +42,7 @@ Use IDs **estáveis** e **únicos** no repositório. Formato sugerido:
 | Histórias | `docs/product/stories/` (criar pasta quando a primeira US for detalhada) ou corpo do PBI com link |
 | Ligação req → código | `docs/traceability/TRACEABILITY-MATRIX.md` |
 | Decisão com alternativas | `docs/decisions/ADR-NNN-*.md` |
-| Release e mudanças | `CHANGELOG.md` + tag Git |
+| Release e mudanças | `docs/overview/CHANGELOG.md` + tag Git |
 
 ## User Story — campos mínimos
 
@@ -55,13 +55,24 @@ Ver [product/templates/USER-STORY.md](product/templates/USER-STORY.md). Todo US 
 
 ## Changelog
 
-- Seguir o formato descrito em [changelog/README.md](changelog/README.md) e no cabeçalho de [CHANGELOG.md](../CHANGELOG.md).
+- Seguir o formato descrito em [changelog/README.md](changelog/README.md) e no cabeçalho de [overview/CHANGELOG.md](overview/CHANGELOG.md).
 - Versões alinhadas a tags Git (`v0.1.0`, `v1.0.0`).
 
 ## Pull requests / revisão
 
 - Referenciar IDs (`Closes US-012`, `Related REQ-005`).
 - Atualizar `TRACEABILITY-MATRIX.md` quando o PR encerrar um requisito ou história.
+
+## Site de documentação (Markdown no navegador)
+
+O conteúdo em `docs/` também é publicado como site estático (**VitePress**), para leitura com busca e barra lateral.
+
+| Ação | Como |
+|------|------|
+| Editar texto | Commits nos `.md` em `docs/` (e `docs/overview/` para changelog/contexto). |
+| Pré-visualizar local | Na raiz do repo: `npm install` e `npm run docs:dev`. |
+| Build estático | `npm run docs:build` (saída em `docs/.vitepress/dist`). |
+| Publicar no GitHub | Workflow [docs.yml](../.github/workflows/docs.yml) na branch `main`; em **Settings → Pages** do repositório, fonte **GitHub Actions**. URL base: `/VisionAssets/` ([site](https://sistemaslio.github.io/VisionAssets/)). |
 
 ## Privacidade e dados sensíveis
 
