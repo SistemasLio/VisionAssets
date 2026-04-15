@@ -43,6 +43,28 @@ O comando `npm run docs:build` também cria `docs/.vitepress/dist/.nojekyll` par
 - Em **Settings → Pages**, veja o aviso “Your site is live at …”.
 - Teste em aba anônima após o deploy.
 
+## Agente .NET (EPIC-001 — primeiro entregável)
+
+Solução em [VisionAssets.slnx](VisionAssets.slnx), projeto [src/VisionAssets.Agent](src/VisionAssets.Agent):
+
+- Worker (`AgentWorker`) com heartbeat configurável.
+- Pronto para instalação como **serviço Windows** (`AddWindowsService`, nome `VisionAssets Agent`).
+- **Serilog**: console + arquivo com rotação diária; em Development os logs ficam em `Logs/` sob o diretório do executável; em produção, `%ProgramData%\VisionAssets\Logs` (sobrescreva com `Agent:LogsDirectory`).
+
+```bash
+dotnet build
+dotnet run --project src/VisionAssets.Agent
+```
+
+Variáveis de ambiente: `DOTNET_ENVIRONMENT=Development` (já definida em `launchSettings.json` ao depurar).
+
+Instalação manual do serviço (administrador, após `dotnet publish`):
+
+```text
+sc create VisionAssetsAgent binPath= "C:\caminho\completo\VisionAssets.Agent.exe"
+sc start VisionAssetsAgent
+```
+
 ## Estado do repositório
 
-Documentação e estrutura de rastreabilidade; código da aplicação ainda não iniciado. Ver [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md).
+Documentação, portal VitePress e **agente base** (sem SQLite nem coleta WMI ainda). Ver [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md).

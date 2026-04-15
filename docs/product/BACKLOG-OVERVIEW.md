@@ -10,9 +10,9 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 
 | PBI ID | Título | Status | Notas |
 |--------|--------|--------|-------|
-| PBI-001 | Estrutura de solução .NET (serviço + bibliotecas) | Planned | Worker Service / Windows Service |
-| PBI-002 | Configuração (appsettings, variáveis, parâmetros MSI) | Planned | |
-| PBI-003 | Logging estruturado (Serilog) e rotação | Planned | |
+| PBI-001 | Estrutura de solução .NET (serviço + bibliotecas) | Done | `VisionAssets.slnx`, `src/VisionAssets.Agent` |
+| PBI-002 | Configuração (appsettings, variáveis, parâmetros MSI) | Done | `Agent` + `appsettings*.json`; MSI em EPIC-004 |
+| PBI-003 | Logging estruturado (Serilog) e rotação | Done | Console + arquivo diário, retenção 14 dias |
 
 **Requisitos**: REQ-003, REQ-007, REQ-NF-004.
 

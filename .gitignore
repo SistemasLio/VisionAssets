@@ -50,4 +50,7 @@ secrets.json
 node_modules/
 docs/.vitepress/cache
 docs/.vitepress/dist
+
+# Agente — logs locais (Development)
+src/**/Logs/
 node_modules

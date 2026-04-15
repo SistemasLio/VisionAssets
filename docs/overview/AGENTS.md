@@ -19,7 +19,7 @@ Use este arquivo junto com [CONTEXT.md](CONTEXT.md) para alinhar comportamento n
 
 ## Estrutura de pastas de código (quando existir)
 
-- Manter espelho lógico: `src/`, `tests/`, `build/` — documentar em [ARCHITECTURE.md](../technical/ARCHITECTURE.md) quando a primeira árvore for criada.
+- Código do agente: `src/VisionAssets.Agent/` — documentar novas pastas em [ARCHITECTURE.md](../technical/ARCHITECTURE.md).
 
 ## Idioma
 

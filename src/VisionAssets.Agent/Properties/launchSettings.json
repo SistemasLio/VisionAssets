@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "VisionAssets.Agent": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

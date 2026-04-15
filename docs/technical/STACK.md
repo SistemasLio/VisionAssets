@@ -15,8 +15,8 @@ Valores abaixo são **padrão sugerido** até fixação por ADR.
 | MSI | **WiX Toolset** | Alternativa: Advanced Installer, etc. (ADR). |
 | Testes | xUnit + testes de integração com SQLite in-memory | |
 
-## Build e CI (quando existir repositório Git)
+## Build e CI
 
-- `dotnet build` / `dotnet test`
+- `dotnet build` na raiz (solução `VisionAssets.slnx`); `dotnet test` quando houver projetos de teste.
 - Artefato: MSI em pasta `artifacts/`
 - Versionamento alinhado a `docs/overview/CHANGELOG.md` e tags `v*`

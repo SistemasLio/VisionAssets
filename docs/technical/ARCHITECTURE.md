@@ -17,6 +17,12 @@ flowchart LR
   end
 ```
 
+## Código (repositório)
+
+| Caminho | Conteúdo |
+|---------|----------|
+| `src/VisionAssets.Agent/` | Worker .NET 8, registro como serviço Windows, Serilog, heartbeat até coleta (EPIC-003). |
+
 ## Componentes (MVP)
 
 | Componente | Responsabilidade |
