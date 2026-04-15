@@ -5,8 +5,9 @@ O código do **servidor HTTP** que recebe os snapshots de inventário vive num r
 ## Onde está o código
 
 - **Nome do projeto:** `VisionAssets.Api`
-- **Localização de desenvolvimento (máquina do autor):** pasta irmã do clone do agente, por exemplo `Labs/VisionAssets.Api` junto a `Labs/VisionAssets`.
-- **Git:** criar um repositório remoto (ex.: `github.com/SistemasLio/VisionAssets.Api`) e fazer push a partir dessa pasta; o agente continua em `github.com/SistemasLio/VisionAssets`.
+- **Repositório remoto:** [github.com/SistemasLio/VisionAssets.Api](https://github.com/SistemasLio/VisionAssets.Api)
+- **Agente (relacionado):** [github.com/SistemasLio/VisionAssets](https://github.com/SistemasLio/VisionAssets)
+- **Clone local típico:** pasta irmã do agente (ex.: `Labs/VisionAssets.Api` junto a `Labs/VisionAssets`).
 
 ## Documentação no repositório da API
 
