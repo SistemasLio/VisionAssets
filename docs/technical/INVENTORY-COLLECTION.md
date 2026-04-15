@@ -1,5 +1,7 @@
 # Coleta de inventário — fontes e práticas
 
+**Implementação no código:** `src/VisionAssets.Inventory/` (`HardwareCollector`, `SoftwareCollector`, `OperatingSystemCollector`).
+
 ## Hardware (WMI/CIM)
 
 Classes típicas (não exaustivo):

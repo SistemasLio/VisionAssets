@@ -51,7 +51,9 @@ Solução em [VisionAssets.slnx](VisionAssets.slnx), projeto [src/VisionAssets.A
 - Worker (`AgentWorker`) com heartbeat configurável.
 - Pronto para instalação como **serviço Windows** (`AddWindowsService`, nome `VisionAssets Agent`).
 - **Serilog**: console + arquivo com rotação diária; em Development os logs ficam em `Logs/` sob o diretório do executável; em produção, `%ProgramData%\VisionAssets\Logs` (sobrescreva com `Agent:LogsDirectory`).
-- **SQLite (EPIC-002)**: ficheiro local (`Agent:DatabasePath` ou padrão `Data/visionassets.db` em Development e `%ProgramData%\VisionAssets\Data\visionassets.db` em produção). Migrações em `src/VisionAssets.Persistence/Migrations/`. Cada heartbeat regista uma linha em `inventory_run` (sem dados de hardware/software até EPIC-003).
+- **SQLite (EPIC-002)**: ficheiro local (`Agent:DatabasePath` ou padrão `Data/visionassets.db` em Development e `%ProgramData%\VisionAssets\Data\visionassets.db` em produção). Migrações em `src/VisionAssets.Persistence/Migrations/`. Cada heartbeat regista uma linha em `inventory_run`.
+- **Inventário (EPIC-003)**: projeto `src/VisionAssets.Inventory` — hardware via WMI/CIM (sem `Win32_Product`), software via chaves Uninstall (HKLM 64/32, HKCU opcional com `Agent:IncludeCurrentUserUninstallKeys`). Snapshot completo em `hardware_component` e `installed_software` a cada execução.
+- **Build:** o projeto do agente usa `net8.0-windows`; compile na sua máquina Windows (ou agente CI `windows-latest`). O projeto `VisionAssets.Persistence` compila em qualquer SO.
 
 ```bash
 dotnet build

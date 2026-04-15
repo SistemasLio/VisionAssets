@@ -23,6 +23,8 @@ flowchart LR
 |---------|----------|
 | `src/VisionAssets.Agent/` | Worker .NET 8, serviço Windows, Serilog, orquestração de ciclos e registo de `inventory_run`. |
 | `src/VisionAssets.Persistence/` | SQLite, migrações (`MigrationRunner`), repositórios Dapper, SQL em `Migrations/`. |
+| `src/VisionAssets.Inventory/` | Coleta WMI/CIM (`HardwareCollector`) e Registry (`SoftwareCollector`); `net8.0-windows`. |
+| `InventoryOrchestrator` (Agent) | Orquestra coleta e grava snapshot em `hardware_component` / `installed_software`. |
 
 ## Componentes (MVP)
 

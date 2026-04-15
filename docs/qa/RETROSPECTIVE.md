@@ -12,6 +12,7 @@ Registo **retroativo** do que já foi entregue até à data indicada e **como** 
 | Portal VitePress | Site estático, sidebar, Mermaid, GitHub Pages | TC-DOC-01, TC-DOC-02 |
 | EPIC-001 — Agente base | Worker, Serilog, serviço Windows, heartbeat | TC-AGENT-01, TC-AGENT-02 |
 | EPIC-002 — Persistência | SQLite, migrações, `machine`, `inventory_run` | TC-INV-01 |
+| EPIC-003 — Inventário | WMI/CIM + Registry → tabelas `hardware_component`, `installed_software`; `InventoryOrchestrator` | TC-INV-02 |
 
 ## Detalhe por épico
 

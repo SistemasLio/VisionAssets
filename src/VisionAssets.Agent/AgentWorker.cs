@@ -10,23 +10,26 @@ public sealed class AgentWorker : BackgroundService
     private readonly IOptionsMonitor<AgentOptions> _options;
     private readonly IMachineRepository _machine;
     private readonly IInventoryRunRepository _inventory;
+    private readonly InventoryOrchestrator _orchestrator;
 
     public AgentWorker(
         ILogger<AgentWorker> logger,
         IOptionsMonitor<AgentOptions> options,
         IMachineRepository machine,
-        IInventoryRunRepository inventory)
+        IInventoryRunRepository inventory,
+        InventoryOrchestrator orchestrator)
     {
         _logger = logger;
         _options = options;
         _machine = machine;
         _inventory = inventory;
+        _orchestrator = orchestrator;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _logger.LogInformation(
-            "VisionAssets Agent em execução (EPIC-001/002). Coleta WMI/Registry em EPIC-003.");
+            "VisionAssets Agent em execução (EPIC-003: WMI/CIM + Registry → SQLite).");
 
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -57,6 +60,7 @@ public sealed class AgentWorker : BackgroundService
         {
             var machineId = await _machine.GetOrCreateLocalMachineIdAsync(cancellationToken).ConfigureAwait(false);
             runId = await _inventory.StartRunAsync(machineId, AgentMetadata.Version, cancellationToken).ConfigureAwait(false);
+            await _orchestrator.RunAsync(machineId, cancellationToken).ConfigureAwait(false);
             await _inventory.CompleteRunAsync(runId, true, null, cancellationToken).ConfigureAwait(false);
         }
         catch (Exception ex)

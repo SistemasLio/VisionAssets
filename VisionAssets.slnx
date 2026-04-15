@@ -2,5 +2,6 @@
   <Folder Name="/src/">
     <Project Path="src/VisionAssets.Agent/VisionAssets.Agent.csproj" />
     <Project Path="src/VisionAssets.Persistence/VisionAssets.Persistence.csproj" />
+    <Project Path="src/VisionAssets.Inventory/VisionAssets.Inventory.csproj" />
   </Folder>
 </Solution>

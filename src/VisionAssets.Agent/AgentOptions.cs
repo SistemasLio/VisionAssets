@@ -17,4 +17,10 @@ public sealed class AgentOptions
     /// Caminho completo do ficheiro SQLite. Se vazio: Development em ./Data/visionassets.db; produção em %ProgramData%\VisionAssets\Data\visionassets.db.
     /// </summary>
     public string? DatabasePath { get; set; }
+
+    /// <summary>Incluir software em HKCU (utilizador atual do processo).</summary>
+    public bool IncludeCurrentUserUninstallKeys { get; set; }
+
+    /// <summary>Timeout orientativo para consultas CIM (ms).</summary>
+    public int CimQueryTimeoutMs { get; set; } = 60_000;
 }

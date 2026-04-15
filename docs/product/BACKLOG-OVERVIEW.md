@@ -38,10 +38,10 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 
 | PBI ID | Título | Status | Notas |
 |--------|--------|--------|-------|
-| PBI-020 | Coleta de hardware via WMI/CIM | Planned | |
-| PBI-021 | Coleta de software via Registry (64/32 bit + HKCU opcional) | Planned | |
-| PBI-022 | Estratégia anti-duplicação e normalização | Planned | |
-| PBI-023 | Licenças: detecção parcial + modelo para dados manuais | Planned | REQ-009 |
+| PBI-020 | Coleta de hardware via WMI/CIM | Done | `VisionAssets.Inventory/HardwareCollector.cs` |
+| PBI-021 | Coleta de software via Registry (64/32 bit + HKCU opcional) | Done | `SoftwareCollector.cs`; `Agent:IncludeCurrentUserUninstallKeys` |
+| PBI-022 | Estratégia anti-duplicação e normalização | Done | Deduplicação por nome+versão+editor no software |
+| PBI-023 | Licenças: detecção parcial + modelo para dados manuais | Planned | Tabela `license_record`; sem preenchimento automático no MVP |
 
 **Requisitos**: REQ-004, REQ-005, REQ-008, REQ-009.
 

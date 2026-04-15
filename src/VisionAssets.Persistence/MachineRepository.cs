@@ -58,4 +58,18 @@ public sealed class MachineRepository : IMachineRepository
 
         return id;
     }
+
+    public async Task UpdateOperatingSystemAsync(
+        string machineId,
+        string? osName,
+        string? osVersion,
+        CancellationToken cancellationToken = default)
+    {
+        using var conn = _connections.CreateConnection();
+        await conn.ExecuteAsync(
+            new CommandDefinition(
+                "UPDATE machine SET os_name = @Name, os_version = @Ver WHERE id = @Id;",
+                new { Name = osName, Ver = osVersion, Id = machineId },
+                cancellationToken: cancellationToken)).ConfigureAwait(false);
+    }
 }

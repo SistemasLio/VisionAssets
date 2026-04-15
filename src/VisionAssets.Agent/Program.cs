@@ -53,6 +53,7 @@ builder.Services.AddVisionAssetsPersistence(_ =>
     return $"Data Source={databasePath};Cache=Shared";
 });
 
+builder.Services.AddSingleton<InventoryOrchestrator>();
 builder.Services.AddHostedService<AgentWorker>();
 
 try

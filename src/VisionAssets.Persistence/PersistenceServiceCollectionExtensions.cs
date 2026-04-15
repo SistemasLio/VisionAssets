@@ -14,6 +14,7 @@ public static class PersistenceServiceCollectionExtensions
         services.AddSingleton<IMigrationRunner, MigrationRunner>();
         services.AddSingleton<IMachineRepository, MachineRepository>();
         services.AddSingleton<IInventoryRunRepository, InventoryRunRepository>();
+        services.AddSingleton<IInventoryDataRepository, InventoryDataRepository>();
         return services;
     }
 }

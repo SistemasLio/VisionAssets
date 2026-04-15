@@ -64,6 +64,22 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 
 ---
 
+## TC-INV-02 — Inventário WMI + Registry no SQLite
+
+**UC:** UC-INV-001  
+
+1. Garantir **TC-INV-01** já executado ou base válida.
+2. `dotnet run --project src/VisionAssets.Agent` e aguardar pelo menos um ciclo (em Development, 1 minuto entre ciclos ou reiniciar para forçar nova execução imediata ao subir).
+3. Abrir `visionassets.db` e verificar:
+   - `machine.os_name` / `os_version` preenchidos (caption do Windows).
+   - Várias linhas em `hardware_component` com `category` (CPU, RAM, DISK, GPU, …).
+   - Várias linhas em `installed_software` com `name` não vazio.
+4. Opcional: `Agent:IncludeCurrentUserUninstallKeys` = `true` em `appsettings.Development.json` e repetir — contagem em `installed_software` pode aumentar.
+
+**Resultado esperado:** snapshot completo por execução; cada ciclo substitui hardware/software da máquina (sem histórico incremental entre ciclos).
+
+---
+
 ## TC-INV-01 — SQLite: migrações e `inventory_run`
 
 **UC:** UC-INV-002  
@@ -92,4 +108,5 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 - [ ] TC-BUILD-01
 - [ ] TC-AGENT-01 (se alterou agente ou persistência)
 - [ ] TC-INV-01 (se alterou SQLite ou migrações)
+- [ ] TC-INV-02 (se alterou coleta WMI/Registry ou snapshots)
 - [ ] TC-DOC-01 (se alterou `docs/` ou VitePress)

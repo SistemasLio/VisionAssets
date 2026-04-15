@@ -5,4 +5,7 @@ public interface IMachineRepository
 {
     /// <summary>Garante um registo <c>machine</c> para o host atual e devolve o id.</summary>
     Task<string> GetOrCreateLocalMachineIdAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>Atualiza nome/versão do SO a partir da coleta WMI.</summary>
+    Task UpdateOperatingSystemAsync(string machineId, string? osName, string? osVersion, CancellationToken cancellationToken = default);
 }

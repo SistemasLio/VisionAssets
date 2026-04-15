@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UserSecretsId>dotnet-VisionAssets.Agent-4eb91a15-bd55-4c47-86f4-2046572c1eec</UserSecretsId>
     <Description>Agente Windows — inventário de hardware e software (serviço em background).</Description>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VisionAssets.Inventory\VisionAssets.Inventory.csproj" />
     <ProjectReference Include="..\VisionAssets.Persistence\VisionAssets.Persistence.csproj" />
   </ItemGroup>
 
