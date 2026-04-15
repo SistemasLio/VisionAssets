@@ -2,11 +2,17 @@
 
 Visão de conjunto para **REQ-012**: agente envia snapshots de inventário a um **backend greenfield**, autenticado com **Microsoft Entra ID**.
 
+## Repositório do código
+
+- **Agente (Windows):** este repositório VisionAssets.
+- **API central:** repositório **separado** — [ADR-003](../decisions/ADR-003-api-repository-separate.md). O contrato e os ADRs permanecem aqui como referência entre equipas.
+
 ## Documentos de referência
 
 | Documento | Conteúdo |
 |-----------|----------|
 | [ADR-002](../decisions/ADR-002-entra-id-central-api.md) | Decisão: client credentials, identidade em camadas, idempotência. |
+| [ADR-003](../decisions/ADR-003-api-repository-separate.md) | API em repo separado do agente. |
 | [Contrato OpenAPI v0.1](../contracts/inventory-v1.openapi.yaml) | Esquema do corpo JSON e endpoint `POST /v1/inventory-snapshots`. |
 | [Matriz de rastreabilidade](../traceability/TRACEABILITY-MATRIX.md) | REQ-012 → EPIC-006. |
 
@@ -20,4 +26,4 @@ Escala prevista (~400 máquinas, 2–3 execuções por semana): sem requisito de
 
 ## Próximos passos de implementação
 
-Ver **EPIC-006** em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md) (PBIs de API, Entra e agente).
+Ver **EPIC-006** em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md) (PBIs de API, Entra e agente). Implementação da API: **outro repositório**; PBIs PBI-051 em diante referem-se a esse projeto.

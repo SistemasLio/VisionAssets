@@ -50,7 +50,7 @@ Opcional no MVP: **tray UI** apenas para “forçar inventário” e status.
 - **Contrato:** [inventory-v1.openapi.yaml](../contracts/inventory-v1.openapi.yaml) (evolução de PBI-041).
 - **Autenticação:** Microsoft Entra ID, fluxo client credentials — [ADR-002](../decisions/ADR-002-entra-id-central-api.md).
 - **Visão de fluxo:** [API-SYNC.md](API-SYNC.md).
-- **Backend:** API greenfield (fora do diagrama até existir repositório/projeto).
+- **Backend:** API greenfield noutro **repositório Git** ([ADR-003](../decisions/ADR-003-api-repository-separate.md)); contrato OpenAPI neste repo.
 
 ## Segurança
 

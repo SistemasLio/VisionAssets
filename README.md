@@ -85,7 +85,7 @@ sc start "VisionAssets Agent"
 
 (O nome do serviço inclui espaço, alinhado ao instalador MSI.)
 
-**Sincronização com servidor central (Microsoft Entra ID):** ver [docs/technical/API-SYNC.md](docs/technical/API-SYNC.md) e [ADR-002](docs/decisions/ADR-002-entra-id-central-api.md).
+**Sincronização com servidor central (Microsoft Entra ID):** ver [docs/technical/API-SYNC.md](docs/technical/API-SYNC.md), [ADR-002](docs/decisions/ADR-002-entra-id-central-api.md) e [ADR-003](docs/decisions/ADR-003-api-repository-separate.md) (a **API** vive noutro repositório; o contrato OpenAPI mantém-se em `docs/contracts/`).
 
 ## Estado do repositório
 
