@@ -11,7 +11,7 @@ Garantir que cada entrega do VisionAssets é **verificável**, com critérios cl
 | **Unitário** | Funções puras, parsers, normalização de strings de software | A introduzir com projetos `tests/` |
 | **Integração** | SQLite in-memory ou ficheiro temporário, migrações, repositórios | A introduzir |
 | **Sistema / manual** | Agente a correr em Windows, ficheiros de log, base SQLite real, portal VitePress | **Ativo** — descrito em [HOW-TO-TEST.md](HOW-TO-TEST.md) |
-| **Instalação** | MSI, serviço Windows, GPO (EPIC-004) | Planeado |
+| **Instalação** | MSI, serviço Windows, referência GPO/SCCM/Intune (EPIC-004) | **Ativo** — [TC-MSI-01](HOW-TO-TEST.md#tc-msi-01--instalação-pelo-msi) em [HOW-TO-TEST.md](HOW-TO-TEST.md) |
 
 ## Ambientes
 

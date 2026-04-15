@@ -72,6 +72,7 @@ export default withMermaid(
           items: [
             { text: 'Arquitetura', link: '/technical/ARCHITECTURE' },
             { text: 'Stack', link: '/technical/STACK' },
+            { text: 'Implantação (MSI / rede)', link: '/technical/DEPLOYMENT' },
             { text: 'Modelo de dados', link: '/technical/DATA-MODEL' },
             { text: 'Coleta de inventário', link: '/technical/INVENTORY-COLLECTION' },
           ],

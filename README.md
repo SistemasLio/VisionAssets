@@ -74,7 +74,7 @@ dotnet build installer/VisionAssets.Installer/VisionAssets.Installer.wixproj -c 
 
 Saída: `installer/VisionAssets.Installer/bin/Release/VisionAssets.Agent.msi`. O `dotnet build` da `VisionAssets.slnx` pode não invocar o projeto WiX em todas as versões da CLI; use o comando acima para o MSI.
 
-Instalação silenciosa típica (administrador): `msiexec /i VisionAssets.Agent.msi /qn` (ajuste conforme política da organização).
+**Implantação em rede** (GPO, SCCM, Intune, `msiexec`): [docs/technical/DEPLOYMENT.md](docs/technical/DEPLOYMENT.md).
 
 Instalação manual do serviço **sem** MSI (administrador, após `dotnet publish`), se necessário:
 

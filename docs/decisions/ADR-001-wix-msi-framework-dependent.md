@@ -18,6 +18,7 @@ REQ-001 exige instalação via MSI; EPIC-004 prevê empacotamento reprodutível 
 
 - MSI mais pequeno do que um pacote self-contained; em ambientes sem runtime .NET, será necessário pré-instalar o runtime ou evoluir para variante self-contained (Q-002 no `OPEN-QUESTIONS.md`).
 - O build do MSI deve ser feito em **Windows** (WiX); em CI usar `runs-on: windows-latest`.
+- Procedimentos de implantação em rede (GPO, SCCM, Intune, `msiexec`): [DEPLOYMENT.md](../technical/DEPLOYMENT.md).
 
 ## Alternativas consideradas
 

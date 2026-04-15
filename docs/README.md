@@ -40,6 +40,7 @@ Versão navegável no site: [sistemaslio.github.io/VisionAssets](https://sistema
 | [technical/STACK.md](technical/STACK.md) | Linguagem, libs, MSI |
 | [technical/DATA-MODEL.md](technical/DATA-MODEL.md) | Entidades SQLite e evolução |
 | [technical/INVENTORY-COLLECTION.md](technical/INVENTORY-COLLECTION.md) | WMI, Registry, licenças |
+| [technical/DEPLOYMENT.md](technical/DEPLOYMENT.md) | MSI silencioso, GPO, SCCM, Intune |
 
 ## Rastreabilidade e decisões
 

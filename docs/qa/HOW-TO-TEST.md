@@ -44,7 +44,7 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 2. `dotnet build` na raiz da solução.
 3. `dotnet run --project src/VisionAssets.Agent`
 4. Verificar no console: mensagem de arranque com caminho dos **logs** e do **ficheiro SQLite**.
-5. Confirmar criação de pasta `Logs/` e ficheiros `visionassets-YYYYMMDD.log` junto ao executável (output `bin/Debug/net8.0` ou equivalente).
+5. Confirmar criação de pasta `Logs/` e ficheiros `visionassets-YYYYMMDD.log` junto ao executável (output típico `bin/Debug/net8.0-windows`).
 6. Parar com `Ctrl+C`.
 
 **Resultado esperado:** arranque limpo, logs Serilog em disco e consola, encerramento sem excepção.
@@ -56,9 +56,9 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 **UC:** UC-AGENT-002  
 
 1. `dotnet publish src/VisionAssets.Agent -c Release -o publish/agent`
-2. Como administrador: criar serviço com `sc create` apontando para `VisionAssets.Agent.exe` publicado (instruções na raiz do repositório, ficheiro `README.md`).
-3. `sc start <nomeDoServiço>` e verificar logs em `%ProgramData%\VisionAssets\Logs`.
-4. `sc stop` / `sc delete` para limpeza de teste.
+2. Como administrador: criar serviço com `sc create` apontando para `VisionAssets.Agent.exe` publicado (nome do serviço com espaço: `sc create "VisionAssets Agent" binPath= "..."` — ver [README](https://github.com/SistemasLio/VisionAssets/blob/main/README.md)).
+3. `sc start "VisionAssets Agent"` e verificar logs em `%ProgramData%\VisionAssets\Logs`.
+4. `sc stop "VisionAssets Agent"` / `sc delete "VisionAssets Agent"` para limpeza de teste.
 
 **Resultado esperado:** serviço arranca e escreve logs no caminho de produção.
 
@@ -70,7 +70,7 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 
 1. Garantir **TC-INV-01** já executado ou base válida.
 2. `dotnet run --project src/VisionAssets.Agent` e aguardar pelo menos um ciclo (em Development, 1 minuto entre ciclos ou reiniciar para forçar nova execução imediata ao subir).
-3. Abrir `visionassets.db` e verificar:
+3. Abrir `visionassets.db` no caminho do output **net8.0-windows** (ver nota em [TC-INV-01](#tc-inv-01--sqlite-migrações-e-inventory_run)) e verificar:
    - `machine.os_name` / `os_version` preenchidos (caption do Windows).
    - Várias linhas em `hardware_component` com `category` (CPU, RAM, DISK, GPU, …).
    - Várias linhas em `installed_software` com `name` não vazio.
@@ -85,12 +85,28 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 **UC:** UC-INV-002  
 
 1. Executar **TC-AGENT-01** pelo menos até criar a base (ou apagar `Data/visionassets.db` no output para forçar migração limpa).
-2. Abrir `Data/visionassets.db` com ferramenta SQLite.
+2. Abrir `visionassets.db` na pasta `Data/` junto ao executável (tipicamente `bin/Debug/net8.0-windows/Data/visionassets.db`; evitar confundir com outro output, por exemplo `net8.0/Data/`).
 3. Confirmar tabelas: `schema_migrations`, `machine`, `inventory_run`, etc.
 4. Confirmar pelo menos uma linha em `machine` (hostname) e linhas em `inventory_run` com `status` `success` após um ciclo de heartbeat (intervalo pode ser 1 min em Development).
 5. Confirmar `agent_version` preenchido em `inventory_run`.
 
 **Resultado esperado:** esquema alinhado a [DATA-MODEL.md](../technical/DATA-MODEL.md); execuções registadas.
+
+---
+
+## TC-MSI-01 — Instalação pelo MSI
+
+**UC:** UC-AGENT-002 (variante instalador)
+
+**Pré-requisitos:** VM ou posto de teste x64 com Windows 10/11; **.NET 8 Runtime x64** instalado ([transferência](https://dotnet.microsoft.com/download/dotnet/8.0)).
+
+1. Obter `VisionAssets.Agent.msi` (build local do projeto WiX ou artefato do workflow **Build MSI** no GitHub Actions).
+2. Como administrador: `msiexec /i "C:\caminho\VisionAssets.Agent.msi" /qn /norestart` (opcional: `/L*v %TEMP%\va-msi.log` para diagnóstico).
+3. Confirmar em `services.msc` que o serviço **VisionAssets Agent** existe e está **Em execução** (ou iniciar manualmente após política de reboot).
+4. Confirmar pastas `%ProgramFiles%\VisionAssets\Agent\` (binários) e, após um ciclo, `%ProgramData%\VisionAssets\Logs\` e `%ProgramData%\VisionAssets\Data\visionassets.db`.
+5. Limpeza de teste: desinstalar pela aplicação *Aplicações* do Windows ou `msiexec /x {ProductCode} /qn` (ProductCode conforme versão instalada).
+
+**Resultado esperado:** instalação silenciosa sem erros; serviço registado e dados de inventário possíveis na base local. Detalhes e cenários GPO/SCCM/Intune: [DEPLOYMENT.md](../technical/DEPLOYMENT.md).
 
 ---
 
@@ -110,3 +126,4 @@ Guias práticos e **casos de teste (TC-xxx)** reproduzíveis. Atualizar este fic
 - [ ] TC-INV-01 (se alterou SQLite ou migrações)
 - [ ] TC-INV-02 (se alterou coleta WMI/Registry ou snapshots)
 - [ ] TC-DOC-01 (se alterou `docs/` ou VitePress)
+- [ ] TC-MSI-01 (se alterou WiX, MSI ou [DEPLOYMENT.md](../technical/DEPLOYMENT.md))

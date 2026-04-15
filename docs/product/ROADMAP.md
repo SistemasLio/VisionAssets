@@ -11,7 +11,7 @@ Entregas esperadas:
 - Serviço .NET com coleta agendada e/ou disparo manual.
 - Modelo de dados SQLite + migrações.
 - Coleta de hardware (WMI/CIM) e software (Registry).
-- MSI com documentação de parâmetros silenciosos.
+- MSI com documentação de parâmetros silenciosos e implantação em rede ([DEPLOYMENT.md](../technical/DEPLOYMENT.md)).
 - Logs e documentação de operação.
 
 **Épicos**: [EPIC-001](BACKLOG-OVERVIEW.md#epic-001), [EPIC-002](BACKLOG-OVERVIEW.md#epic-002), [EPIC-003](BACKLOG-OVERVIEW.md#epic-003), [EPIC-004](BACKLOG-OVERVIEW.md#epic-004) (MSI; documentação de rede em evolução).

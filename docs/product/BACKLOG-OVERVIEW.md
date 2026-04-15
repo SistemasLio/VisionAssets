@@ -55,7 +55,7 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 |--------|--------|--------|-------|
 | PBI-030 | Projeto WiX (ou ferramenta escolhida) e pipeline de build | Done | `installer/VisionAssets.Installer`, WiX 5; workflow `.github/workflows/msi.yml`; ADR-001 |
 | PBI-031 | Self-contained vs framework-dependent | Done | ADR-001: MSI atual = framework-dependent (`win-x64`); self-contained como evolução (Q-002) |
-| PBI-032 | Documentação de implantação em rede | Planned | Parâmetros MSI / GPO: documentar em iteração |
+| PBI-032 | Documentação de implantação em rede | Done | [DEPLOYMENT.md](../technical/DEPLOYMENT.md) |
 
 **Requisitos**: REQ-001, REQ-002, REQ-NF-001.
 
