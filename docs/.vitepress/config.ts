@@ -74,6 +74,7 @@ export default withMermaid(
             { text: 'Stack', link: '/technical/STACK' },
             { text: 'Implantação (MSI / rede)', link: '/technical/DEPLOYMENT' },
             { text: 'API / sync (Entra ID)', link: '/technical/API-SYNC' },
+            { text: 'Repo da API (VisionAssets.Api)', link: '/technical/API-REPOSITORY' },
             { text: 'Modelo de dados', link: '/technical/DATA-MODEL' },
             { text: 'Coleta de inventário', link: '/technical/INVENTORY-COLLECTION' },
           ],

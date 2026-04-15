@@ -77,8 +77,8 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 | PBI ID | Título | Status | Notas |
 |--------|--------|--------|-------|
 | PBI-050 | Entra ID: app registrations, permissões (app roles), consentimento admin, distribuição de credencial (cert/secret) | Planned | ADR-002 |
-| PBI-051 | API ASP.NET Core — `POST /v1/inventory-snapshots`, validação JWT, persistência central | Planned | REQ-012; código em **repositório separado** ([ADR-003](../decisions/ADR-003-api-repository-separate.md)) |
-| PBI-052 | Agente: MSAL (client credentials), `HttpClient`, outbox/retry após SQLite | In progress | `VisionAssets.Sync`, `sync_outbox`, `Backend:*`; REQ-012 |
+| PBI-051 | API ASP.NET Core — `POST /v1/inventory-snapshots`, validação JWT, persistência central | Done | Projeto **VisionAssets.Api** (repo separado); MVP em memória — ver [API-REPOSITORY.md](../technical/API-REPOSITORY.md) |
+| PBI-052 | Agente: MSAL (client credentials), `HttpClient`, outbox/retry após SQLite | Done | `VisionAssets.Sync`, `sync_outbox`, `Backend:*`; REQ-012 |
 | PBI-053 | Identidade reforçada: `azure_ad_device_id` quando disponível no Windows; `machine_id` + hostname no payload | Done | `EntraDeviceIdReader`, payload OpenAPI |
 
 **Requisitos**: REQ-012 (e alinhamento a REQ-010 se export coexistir).

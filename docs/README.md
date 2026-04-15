@@ -42,6 +42,7 @@ Versão navegável no site: [sistemaslio.github.io/VisionAssets](https://sistema
 | [technical/INVENTORY-COLLECTION.md](technical/INVENTORY-COLLECTION.md) | WMI, Registry, licenças |
 | [technical/DEPLOYMENT.md](technical/DEPLOYMENT.md) | MSI silencioso, GPO, SCCM, Intune |
 | [technical/API-SYNC.md](technical/API-SYNC.md) | Sincronização com API central (Entra ID) |
+| [technical/API-REPOSITORY.md](technical/API-REPOSITORY.md) | Onde está o repositório VisionAssets.Api |
 | [contracts/README.md](contracts/README.md) | Contratos OpenAPI (snapshots de inventário) |
 
 ## Rastreabilidade e decisões

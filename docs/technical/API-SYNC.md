@@ -5,7 +5,7 @@ Visão de conjunto para **REQ-012**: agente envia snapshots de inventário a um 
 ## Repositório do código
 
 - **Agente (Windows):** este repositório VisionAssets.
-- **API central:** repositório **separado** — [ADR-003](../decisions/ADR-003-api-repository-separate.md). O contrato e os ADRs permanecem aqui como referência entre equipas.
+- **API central:** repositório **separado** — [ADR-003](../decisions/ADR-003-api-repository-separate.md), detalhes em [API-REPOSITORY.md](API-REPOSITORY.md). O contrato e os ADRs permanecem no repositório do agente como referência entre equipas.
 
 ## Documentos de referência
 
@@ -30,9 +30,15 @@ Escala prevista (~400 máquinas, 2–3 execuções por semana): sem requisito de
 - Configuração **`Backend`** em `appsettings.json` (`Enabled` por defeito `false`). Secretos: `dotnet user-secrets` ou variáveis de ambiente em produção.
 - Tabela SQLite **`sync_outbox`** (migração `002`): retry com `OutboxMaxAttempts`.
 
+## Implementação no servidor (repositório VisionAssets.Api)
+
+- Projeto **ASP.NET Core 8** com **Microsoft.Identity.Web** (validação JWT Entra).
+- Endpoints: `POST /v1/inventory-snapshots` (autenticado), `GET /health` (público).
+- Armazenamento MVP **em memória** — evoluir para SQL Server / PostgreSQL conforme política da equipa.
+
 ## Próximos passos
 
-- **API** noutro repositório (PBI-051) — validar JWT e `POST /v1/inventory-snapshots`.
-- **Entra** (PBI-050): app registrations e consentimento.
+- **Entra** (PBI-050): app registrations, permissões e consentimento em ambiente real.
+- Persistência central e observabilidade na API.
 
 Ver **EPIC-006** em [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md).

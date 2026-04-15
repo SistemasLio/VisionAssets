@@ -26,7 +26,7 @@ Ligue **requisitos de negócio** a **épicos/PBIs/US** e, quando o código exist
 | REQ-009 | EPIC-003 | PBI-023 | — | — |
 | REQ-010 | EPIC-005 | PBI-040 | — | — |
 | REQ-011 | EPIC-001 | PBI-003 | US-004 | `Program.cs` (Serilog arquivo + console), `Logs/` |
-| REQ-012 | EPIC-006 | PBI-051, PBI-052, PBI-053 | US-005 | Agente: `VisionAssets.Sync`, `sync_outbox`; [ADR-002](../decisions/ADR-002-entra-id-central-api.md), [ADR-003](../decisions/ADR-003-api-repository-separate.md), [OpenAPI](../contracts/inventory-v1.openapi.yaml) |
+| REQ-012 | EPIC-006 | PBI-051, PBI-052, PBI-053 | US-005 | Agente: `VisionAssets.Sync`; API: **VisionAssets.Api** (repo separado); [API-REPOSITORY.md](../technical/API-REPOSITORY.md); [ADR-002](../decisions/ADR-002-entra-id-central-api.md), [ADR-003](../decisions/ADR-003-api-repository-separate.md), [OpenAPI](../contracts/inventory-v1.openapi.yaml) |
 
 ## Requisitos não funcionais
 

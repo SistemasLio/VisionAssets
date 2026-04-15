@@ -9,6 +9,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Added
 
+- **VisionAssets.Api** (repositório separado, pasta irmã): ASP.NET Core 8, `POST /v1/inventory-snapshots`, Microsoft.Identity.Web, store em memória; [API-REPOSITORY.md](../technical/API-REPOSITORY.md).
 - **EPIC-006 (agente)**: projeto `VisionAssets.Sync` — envio de snapshot JSON (Entra client credentials, MSAL), outbox `sync_outbox` (migração `002`), `Backend:Enabled` predefinido `false`, `EntraDeviceIdReader`; agente v0.5.0.
 - **ADR-003**: API central implementada em **repositório Git separado** do agente; contrato OpenAPI permanece neste repositório.
 - **EPIC-006 / REQ-012 / ADR-002**: backend central greenfield, autenticação **Microsoft Entra ID** (OAuth2 client credentials), identidade em camadas (`machine_id` + `azure_ad_device_id` quando disponível); [API-SYNC.md](../technical/API-SYNC.md); contrato [inventory-v1.openapi.yaml](../contracts/inventory-v1.openapi.yaml); backlog PBI-050–053; US-005.
