@@ -10,6 +10,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Added
 
 - Documentação inicial do plano: contexto, governança, negócio, produto (épicos/PBIs/US), técnico, rastreabilidade, template de ADR e changelog.
+- Repositório remoto GitHub, branch `main`, tag `v0.0.0`.
 
 ### Changed
 

@@ -1,5 +1,7 @@
 # VisionAssets — Contexto do projeto
 
+**Repositório Git**: [https://github.com/SistemasLio/VisionAssets](https://github.com/SistemasLio/VisionAssets)
+
 Este arquivo é a **porta de entrada** para contexto humano e ferramentas (IDE, agentes). Mantenha-o atualizado quando o escopo ou as decisões mudarem. Detalhes vivem em `docs/`; aqui ficam resumo e links.
 
 ## O que é
