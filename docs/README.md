@@ -41,6 +41,8 @@ Versão navegável no site: [sistemaslio.github.io/VisionAssets](https://sistema
 | [technical/DATA-MODEL.md](technical/DATA-MODEL.md) | Entidades SQLite e evolução |
 | [technical/INVENTORY-COLLECTION.md](technical/INVENTORY-COLLECTION.md) | WMI, Registry, licenças |
 | [technical/DEPLOYMENT.md](technical/DEPLOYMENT.md) | MSI silencioso, GPO, SCCM, Intune |
+| [technical/API-SYNC.md](technical/API-SYNC.md) | Sincronização com API central (Entra ID) |
+| [contracts/README.md](contracts/README.md) | Contratos OpenAPI (snapshots de inventário) |
 
 ## Rastreabilidade e decisões
 

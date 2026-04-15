@@ -45,10 +45,12 @@ Opcional no MVP: **tray UI** apenas para “forçar inventário” e status.
 3. Persistência faz **merge** idempotente (evitar duplicatas por execução).
 4. Run finaliza com **sucesso** ou **falha** + mensagem de erro sanitizada.
 
-## Integração futura (Fase C)
+## Integração central (Fase C — EPIC-006)
 
-- Contrato JSON estável para **export** e eventual **sync** (ver [BACKLOG-OVERVIEW.md](../product/BACKLOG-OVERVIEW.md) PBI-041).
-- Autenticação e fila: decisão em ADR futuro.
+- **Contrato:** [inventory-v1.openapi.yaml](../contracts/inventory-v1.openapi.yaml) (evolução de PBI-041).
+- **Autenticação:** Microsoft Entra ID, fluxo client credentials — [ADR-002](../decisions/ADR-002-entra-id-central-api.md).
+- **Visão de fluxo:** [API-SYNC.md](API-SYNC.md).
+- **Backend:** API greenfield (fora do diagrama até existir repositório/projeto).
 
 ## Segurança
 

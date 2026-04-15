@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: VisionAssets Inventory API
+  description: |
+    API central para receção de snapshots de inventário enviados pelo agente Windows.
+    Autenticação com **Microsoft Entra ID** (access token obtido via client credentials).
+    Ver ADR-002 e documentação de implementação no repositório.
+  version: 0.1.0
+
+servers:
+  - url: https://api.visionassets.example.com
+    description: URL base (substituir pelo endpoint real)
+
+security:
+  - bearerAuth: []
+
+paths:
+  /v1/inventory-snapshots:
+    post:
+      operationId: postInventorySnapshot
+      summary: Enviar snapshot completo de inventário de uma máquina
+      description: |
+        Idempotência recomendada via header `Idempotency-Key` (`{machine_id}:{inventory_run_id}`).
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InventorySnapshot"
+      responses:
+        "200":
+          description: Snapshot aceite e persistido (ou já existente com mesma chave idempotente).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AcceptResponse"
+        "202":
+          description: Aceite para processamento assíncrono (se a API evoluir para fila).
+        "401":
+          description: Token em falta ou inválido.
+        "403":
+          description: Permissões de aplicação insuficientes.
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token emitido pelo Entra ID (audience da API VisionAssets).
+
+  schemas:
+    InventorySnapshot:
+      type: object
+      required:
+        - schema_version
+        - machine_id
+        - inventory_run_id
+        - collected_at_utc
+        - agent_version
+        - operating_system
+      properties:
+        schema_version:
+          type: string
+          example: "1.0"
+        machine_id:
+          type: string
+          description: GUID estável do agente (SQLite local).
+        inventory_run_id:
+          type: string
+          description: Identificador da execução (ex.: id em inventory_run).
+        collected_at_utc:
+          type: string
+          format: date-time
+        agent_version:
+          type: string
+          example: "0.4.0"
+        entra_tenant_id:
+          type: string
+          description: Tenant Entra ID (opcional se fixo no servidor).
+        azure_ad_device_id:
+          type: string
+          nullable: true
+          description: Identificador do dispositivo no Entra, quando disponível no SO.
+        hostname:
+          type: string
+        operating_system:
+          type: object
+          properties:
+            name:
+              type: string
+            version:
+              type: string
+        hardware:
+          type: array
+          items:
+            $ref: "#/components/schemas/HardwareItem"
+        software:
+          type: array
+          items:
+            $ref: "#/components/schemas/SoftwareItem"
+
+    HardwareItem:
+      type: object
+      properties:
+        category:
+          type: string
+          example: CPU
+        manufacturer:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        serial:
+          type: string
+          nullable: true
+        details_json:
+          type: string
+          nullable: true
+          description: JSON serializado com atributos adicionais (CIM).
+
+    SoftwareItem:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+          nullable: true
+        publisher:
+          type: string
+          nullable: true
+        install_date:
+          type: string
+          nullable: true
+        source:
+          type: string
+          nullable: true
+        evidence_json:
+          type: string
+          nullable: true
+
+    AcceptResponse:
+      type: object
+      properties:
+        correlation_id:
+          type: string
+          format: uuid
+        received_at_utc:
+          type: string
+          format: date-time

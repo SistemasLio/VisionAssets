@@ -26,7 +26,7 @@ Ligue **requisitos de negócio** a **épicos/PBIs/US** e, quando o código exist
 | REQ-009 | EPIC-003 | PBI-023 | — | — |
 | REQ-010 | EPIC-005 | PBI-040 | — | — |
 | REQ-011 | EPIC-001 | PBI-003 | US-004 | `Program.cs` (Serilog arquivo + console), `Logs/` |
-| REQ-012 | EPIC-005 | PBI-041 | — | — |
+| REQ-012 | EPIC-006 | PBI-051, PBI-052, PBI-053 | US-005 | [ADR-002](../decisions/ADR-002-entra-id-central-api.md), [OpenAPI](../contracts/inventory-v1.openapi.yaml) |
 
 ## Requisitos não funcionais
 

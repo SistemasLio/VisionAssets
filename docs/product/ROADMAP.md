@@ -26,12 +26,12 @@ Entregas esperadas:
 
 **Épicos**: [EPIC-005](BACKLOG-OVERVIEW.md#epic-005); documentação de implantação em rede ([EPIC-004](BACKLOG-OVERVIEW.md#epic-004) PBI-032).
 
-## Fase C — Centralização (opcional)
+## Fase C — Centralização
 
-**Marco**: visão única do parque.
+**Marco**: inventário consolidado no servidor com identidade corporativa (Entra ID).
 
-- API e autenticação.
-- Sincronização incremental do SQLite com backend central.
-- Dashboards e políticas (compliance).
+- API greenfield + **Microsoft Entra ID** (client credentials); contrato [OpenAPI](../contracts/inventory-v1.openapi.yaml); [ADR-002](../decisions/ADR-002-entra-id-central-api.md).
+- Sincronização do agente (snapshots após SQLite); fila/retry; escala ~400 máquinas, 2–3×/semana.
+- Evolução: dashboards, políticas de compliance, export CSV/JSON ([EPIC-005](BACKLOG-OVERVIEW.md#epic-005)) em paralelo se necessário.
 
-Itens correspondentes nascerão como novos épicos (`EPIC-00x`) quando a fase for aprovada.
+**Épico**: [EPIC-006](BACKLOG-OVERVIEW.md#epic-006--backend-central-e-sincronização-entra-id).

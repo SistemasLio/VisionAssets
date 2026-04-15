@@ -66,7 +66,22 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 | PBI ID | Título | Status | Notas |
 |--------|--------|--------|-------|
 | PBI-040 | Exportação CSV/JSON | Planned | REQ-010 |
-| PBI-041 | Contrato de dados para futura API central | Planned | REQ-012 |
+| PBI-041 | Contrato de dados para API central | In progress | Rascunho OpenAPI em `docs/contracts/`; implementação em EPIC-006 |
+
+---
+
+## EPIC-006 — Backend central e sincronização (Entra ID)
+
+**Objetivo**: API greenfield, autenticação Microsoft Entra ID, envio de snapshots pelo agente (~400 máquinas; 2–3×/semana).
+
+| PBI ID | Título | Status | Notas |
+|--------|--------|--------|-------|
+| PBI-050 | Entra ID: app registrations, permissões (app roles), consentimento admin, distribuição de credencial (cert/secret) | Planned | ADR-002 |
+| PBI-051 | API ASP.NET Core — `POST /v1/inventory-snapshots`, validação JWT, persistência central | Planned | REQ-012 |
+| PBI-052 | Agente: MSAL (client credentials), `HttpClient`, outbox/retry após SQLite | Planned | REQ-012 |
+| PBI-053 | Identidade reforçada: `azure_ad_device_id` quando disponível no Windows; `machine_id` + hostname no payload | Planned | ADR-002 |
+
+**Requisitos**: REQ-012 (e alinhamento a REQ-010 se export coexistir).
 
 ---
 
@@ -80,6 +95,7 @@ Detalhar em arquivos `US-NNN.md` com critérios de aceite.
 | US-002 | Como gestor de ativos, quero ver inventário de hardware atualizado para planejar substituições | EPIC-003 | PBI-020 |
 | US-003 | Como gestor de ativos, quero lista de software instalado confiável para auditoria | EPIC-003 | PBI-021 |
 | US-004 | Como administrador, quero logs de execução do inventário para diagnosticar falhas | EPIC-001 | PBI-003 |
+| US-005 | Como operador de TI, quero que o inventário seja enviado de forma segura ao servidor central (Entra ID) para consolidar ativos | EPIC-006 | PBI-051, PBI-052 |
 
 ---
 

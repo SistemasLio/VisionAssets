@@ -85,6 +85,8 @@ sc start "VisionAssets Agent"
 
 (O nome do serviço inclui espaço, alinhado ao instalador MSI.)
 
+**Sincronização com servidor central (Microsoft Entra ID):** ver [docs/technical/API-SYNC.md](docs/technical/API-SYNC.md) e [ADR-002](docs/decisions/ADR-002-entra-id-central-api.md).
+
 ## Estado do repositório
 
 Agente com SQLite, inventário WMI/Registry e **MSI WiX**; portal VitePress e documentação em `docs/`. Ver [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md).
