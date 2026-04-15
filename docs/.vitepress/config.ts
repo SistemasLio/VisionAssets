@@ -7,10 +7,12 @@ export default withMermaid(
     description: 'Documentação do projeto VisionAssets — inventário de hardware e software no Windows.',
     lang: 'pt-BR',
     base: '/VisionAssets/',
-    cleanUrls: true,
+    // GitHub Pages não faz rewrite de URLs “clean”; sem .html pode dar 404.
+    cleanUrls: false,
     lastUpdated: true,
     themeConfig: {
-      logo: '/favicon.svg',
+      // Caminho relativo ao base (/VisionAssets/) — evita 404 no primeiro paint em Pages.
+      logo: 'favicon.svg',
       nav: [
         { text: 'Início', link: '/' },
         { text: 'Índice', link: '/README' },

@@ -16,6 +16,12 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Changed
 
 - `CONTEXT.md`, `AGENTS.md` e `CHANGELOG.md` movidos da raiz para `docs/overview/`; referências internas atualizadas.
+- `cleanUrls: false` no VitePress para compatibilidade com o servidor estático do GitHub Pages.
+- Após o build, script `scripts/ensure-nojekyll.mjs` grava `.nojekyll` em `dist` (Jekyll do Pages não deve processar o site).
+
+### Fixed
+
+- 404 no GitHub Pages causado pela ausência de `.nojekyll` no artefato publicado (arquivos em `public/` começando com ponto não eram copiados).
 
 ## [0.0.0] — 2026-04-15
 
