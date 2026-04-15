@@ -14,7 +14,7 @@ Entregas esperadas:
 - MSI com documentação de parâmetros silenciosos.
 - Logs e documentação de operação.
 
-**Épicos**: [EPIC-001](BACKLOG-OVERVIEW.md#epic-001), [EPIC-002](BACKLOG-OVERVIEW.md#epic-002), [EPIC-003](BACKLOG-OVERVIEW.md#epic-003).
+**Épicos**: [EPIC-001](BACKLOG-OVERVIEW.md#epic-001), [EPIC-002](BACKLOG-OVERVIEW.md#epic-002), [EPIC-003](BACKLOG-OVERVIEW.md#epic-003), [EPIC-004](BACKLOG-OVERVIEW.md#epic-004) (MSI; documentação de rede em evolução).
 
 ## Fase B — Relatórios e operação
 
@@ -24,7 +24,7 @@ Entregas esperadas:
 - Melhorias de deduplicação e normalização de nomes de software.
 - UI mínima opcional (bandeja / status).
 
-**Épicos**: [EPIC-004](BACKLOG-OVERVIEW.md#epic-004) (parcial).
+**Épicos**: [EPIC-005](BACKLOG-OVERVIEW.md#epic-005); documentação de implantação em rede ([EPIC-004](BACKLOG-OVERVIEW.md#epic-004) PBI-032).
 
 ## Fase C — Centralização (opcional)
 

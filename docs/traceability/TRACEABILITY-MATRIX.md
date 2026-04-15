@@ -15,8 +15,8 @@ Ligue **requisitos de negócio** a **épicos/PBIs/US** e, quando o código exist
 
 | REQ | Épico | PBI | US | Implementação |
 |-----|-------|-----|----|----------------|
-| REQ-001 | EPIC-004 | PBI-030 | US-001 | — |
-| REQ-002 | EPIC-004 | PBI-030, PBI-032 | — | — |
+| REQ-001 | EPIC-004 | PBI-030 | US-001 | `installer/VisionAssets.Installer`, `VisionAssets.Agent.msi`, ADR-001 |
+| REQ-002 | EPIC-004 | PBI-030, PBI-032 | — | MSI + serviço (WiX `ServiceInstall`); doc rede em PBI-032 |
 | REQ-003 | EPIC-001 | PBI-001 | — | `src/VisionAssets.Agent` (`AddWindowsService`, `AgentWorker`) |
 | REQ-004 | EPIC-003 | PBI-020 | US-002 | `VisionAssets.Inventory`, `hardware_component` |
 | REQ-005 | EPIC-003 | PBI-021 | US-003 | `SoftwareCollector`, `installed_software` |

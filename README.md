@@ -62,13 +62,29 @@ dotnet run --project src/VisionAssets.Agent
 
 Variáveis de ambiente: `DOTNET_ENVIRONMENT=Development` (já definida em `launchSettings.json` ao depurar).
 
-Instalação manual do serviço (administrador, após `dotnet publish`):
+### MSI (EPIC-004)
+
+Projeto WiX: [installer/VisionAssets.Installer](installer/VisionAssets.Installer). Gera `VisionAssets.Agent.msi` (x64, **framework-dependent** — requer [.NET 8 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) x64 no alvo, conforme [ADR-001](docs/decisions/ADR-001-wix-msi-framework-dependent.md)).
+
+Na raiz, em Windows:
+
+```bash
+dotnet build installer/VisionAssets.Installer/VisionAssets.Installer.wixproj -c Release
+```
+
+Saída: `installer/VisionAssets.Installer/bin/Release/VisionAssets.Agent.msi`. O `dotnet build` da `VisionAssets.slnx` pode não invocar o projeto WiX em todas as versões da CLI; use o comando acima para o MSI.
+
+Instalação silenciosa típica (administrador): `msiexec /i VisionAssets.Agent.msi /qn` (ajuste conforme política da organização).
+
+Instalação manual do serviço **sem** MSI (administrador, após `dotnet publish`), se necessário:
 
 ```text
-sc create VisionAssetsAgent binPath= "C:\caminho\completo\VisionAssets.Agent.exe"
-sc start VisionAssetsAgent
+sc create "VisionAssets Agent" binPath= "C:\caminho\completo\VisionAssets.Agent.exe"
+sc start "VisionAssets Agent"
 ```
+
+(O nome do serviço inclui espaço, alinhado ao instalador MSI.)
 
 ## Estado do repositório
 
-Documentação, portal VitePress e **agente base** (sem SQLite nem coleta WMI ainda). Ver [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md).
+Agente com SQLite, inventário WMI/Registry e **MSI WiX**; portal VitePress e documentação em `docs/`. Ver [docs/overview/CHANGELOG.md](docs/overview/CHANGELOG.md).

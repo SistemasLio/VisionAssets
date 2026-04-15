@@ -9,6 +9,7 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Added
 
+- **EPIC-004 (MVP parcial)**: projeto WiX 5 `installer/VisionAssets.Installer` — MSI `VisionAssets.Agent.msi` (Program Files, serviço `VisionAssets Agent`); publish `win-x64` framework-dependent; [ADR-001](../decisions/ADR-001-wix-msi-framework-dependent.md); workflow GitHub Actions `Build MSI` (artefato).
 - **EPIC-003**: projeto `VisionAssets.Inventory` (`net8.0-windows`), coleta hardware (Win32_* via CIM), software (Uninstall Registry, 64/32/HKCU opcional), deduplicação de pacotes; `IInventoryDataRepository` + snapshots; `InventoryOrchestrator`; agente `net8.0-windows` v0.4.0; `MachineRepository.UpdateOperatingSystemAsync`; opções `IncludeCurrentUserUninstallKeys`, `CimQueryTimeoutMs`.
 - Documentação de **QA**: pasta `docs/qa/` (estratégia, casos de uso UC-xxx, como testar TC-xxx, retrospectiva); diretriz em [GOVERNANCE.md](../GOVERNANCE.md); portal VitePress e índices atualizados.
 - **EPIC-002**: biblioteca `src/VisionAssets.Persistence` (SQLite + Dapper), migração `001_initial.sql` (tabelas `machine`, `hardware_component`, `installed_software`, `license_record`, `inventory_run`), `IMigrationRunner`, `MachineRepository`, `InventoryRunRepository`; arranque aplica migrações pendentes; `Agent:DatabasePath` e ficheiro por defeito em `Data/` ou `%ProgramData%\VisionAssets\Data\`.

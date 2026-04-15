@@ -1,0 +1,21 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <Platforms>x64</Platforms>
+    <OutputName>VisionAssets.Agent</OutputName>
+  </PropertyGroup>
+  <!-- Publish output consumed by Package.wxs via bind path Payload -->
+  <PropertyGroup>
+    <AgentPublishDir>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)..\..\artifacts\agent-publish'))</AgentPublishDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <BindPath Include="$(AgentPublishDir)">
+      <BindName>Payload</BindName>
+    </BindPath>
+  </ItemGroup>
+  <Target Name="PublishAgentForMsi" BeforeTargets="BeforeBuild" Condition="'$(SkipPublishAgent)' != 'true'">
+    <Exec
+      WorkingDirectory="$(MSBuildThisFileDirectory)..\.."
+      Command="dotnet publish src\VisionAssets.Agent\VisionAssets.Agent.csproj -c $(Configuration) -r win-x64 --self-contained false -o artifacts\agent-publish" />
+  </Target>
+</Project>

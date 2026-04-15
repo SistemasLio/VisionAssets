@@ -1,0 +1,31 @@
+# Build do MSI (WiX) — requer Windows e .NET 8 SDK.
+name: Build MSI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "installer/**"
+      - ".github/workflows/msi.yml"
+
+jobs:
+  msi:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Build MSI
+        run: dotnet build installer/VisionAssets.Installer/VisionAssets.Installer.wixproj -c Release
+
+      - name: Upload MSI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: VisionAssets.Agent-msi
+          path: installer/VisionAssets.Installer/bin/Release/*.msi

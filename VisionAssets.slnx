@@ -4,4 +4,7 @@
     <Project Path="src/VisionAssets.Persistence/VisionAssets.Persistence.csproj" />
     <Project Path="src/VisionAssets.Inventory/VisionAssets.Inventory.csproj" />
   </Folder>
+  <Folder Name="/installer/">
+    <Project Path="installer/VisionAssets.Installer/VisionAssets.Installer.wixproj" />
+  </Folder>
 </Solution>
