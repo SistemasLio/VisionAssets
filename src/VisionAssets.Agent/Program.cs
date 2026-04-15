@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Serilog;
 using Serilog.Events;
 using VisionAssets.Agent;
+using VisionAssets.Persistence;
 
 // Serviço Windows: diretório de trabalho pode ser System32; usar pasta do executável.
 var builder = Host.CreateApplicationBuilder(new HostApplicationBuilderSettings
@@ -24,6 +25,7 @@ builder.Services
 var agentSection = builder.Configuration.GetSection(AgentOptions.SectionName);
 var agentOpts = agentSection.Get<AgentOptions>() ?? new AgentOptions();
 var logsDir = ResolveLogsDirectory(builder.Environment, agentOpts);
+var databasePath = ResolveDatabasePath(builder.Environment, agentOpts);
 
 Directory.CreateDirectory(logsDir);
 var logFile = Path.Combine(logsDir, "visionassets-.log");
@@ -43,12 +45,27 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Services.AddSerilog(Log.Logger, dispose: true);
 
+builder.Services.AddVisionAssetsPersistence(_ =>
+{
+    var dir = Path.GetDirectoryName(databasePath);
+    if (!string.IsNullOrEmpty(dir))
+        Directory.CreateDirectory(dir);
+    return $"Data Source={databasePath};Cache=Shared";
+});
+
 builder.Services.AddHostedService<AgentWorker>();
 
 try
 {
-    Log.Information("VisionAssets Agent iniciando (PID {Pid}). Logs em {LogsDir}", Process.GetCurrentProcess().Id, logsDir);
-    await builder.Build().RunAsync().ConfigureAwait(false);
+    Log.Information(
+        "VisionAssets Agent iniciando (PID {Pid}). Logs: {LogsDir}. SQLite: {DbPath}",
+        Process.GetCurrentProcess().Id,
+        logsDir,
+        databasePath);
+
+    var app = builder.Build();
+    await app.Services.GetRequiredService<IMigrationRunner>().ApplyPendingAsync().ConfigureAwait(false);
+    await app.RunAsync().ConfigureAwait(false);
 }
 catch (Exception ex)
 {
@@ -72,4 +89,19 @@ static string ResolveLogsDirectory(IHostEnvironment env, AgentOptions opts)
         Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
         "VisionAssets",
         "Logs");
+}
+
+static string ResolveDatabasePath(IHostEnvironment env, AgentOptions opts)
+{
+    if (!string.IsNullOrWhiteSpace(opts.DatabasePath))
+        return Path.GetFullPath(opts.DatabasePath);
+
+    if (env.IsDevelopment())
+        return Path.Combine(env.ContentRootPath, "Data", "visionassets.db");
+
+    return Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+        "VisionAssets",
+        "Data",
+        "visionassets.db");
 }

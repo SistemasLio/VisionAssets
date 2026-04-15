@@ -24,9 +24,9 @@ Este documento concentra **épicos** e **PBIs** com IDs alinhados a [GOVERNANCE.
 
 | PBI ID | Título | Status | Notas |
 |--------|--------|--------|-------|
-| PBI-010 | Esquema SQLite (Machine, Hardware, Software, InventoryRun) | Planned | Ver [DATA-MODEL.md](../technical/DATA-MODEL.md) |
-| PBI-011 | Migrações versionadas | Planned | |
-| PBI-012 | Camada de acesso a dados | Planned | |
+| PBI-010 | Esquema SQLite (Machine, Hardware, Software, InventoryRun) | Done | `001_initial.sql`, tabelas + índices |
+| PBI-011 | Migrações versionadas | Done | `MigrationRunner`, `schema_migrations`, SQL embutido |
+| PBI-012 | Camada de acesso a dados | Done | Dapper, `MachineRepository`, `InventoryRunRepository` |
 
 **Requisitos**: REQ-006, REQ-007.
 

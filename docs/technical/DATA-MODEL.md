@@ -62,7 +62,7 @@ Identifica o endpoint.
 | machine_id | TEXT FK | |
 | started_at | TEXT | |
 | finished_at | TEXT | |
-| status | TEXT | success / failed |
+| status | TEXT | `running` (em curso), `success`, `failed` |
 | agent_version | TEXT | |
 | error_message | TEXT | sanitizado |
 

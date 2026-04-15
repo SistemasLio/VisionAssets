@@ -21,7 +21,8 @@ flowchart LR
 
 | Caminho | Conteúdo |
 |---------|----------|
-| `src/VisionAssets.Agent/` | Worker .NET 8, registro como serviço Windows, Serilog, heartbeat até coleta (EPIC-003). |
+| `src/VisionAssets.Agent/` | Worker .NET 8, serviço Windows, Serilog, orquestração de ciclos e registo de `inventory_run`. |
+| `src/VisionAssets.Persistence/` | SQLite, migrações (`MigrationRunner`), repositórios Dapper, SQL em `Migrations/`. |
 
 ## Componentes (MVP)
 

@@ -20,8 +20,8 @@ Ligue **requisitos de negócio** a **épicos/PBIs/US** e, quando o código exist
 | REQ-003 | EPIC-001 | PBI-001 | — | `src/VisionAssets.Agent` (`AddWindowsService`, `AgentWorker`) |
 | REQ-004 | EPIC-003 | PBI-020 | US-002 | — |
 | REQ-005 | EPIC-003 | PBI-021 | US-003 | — |
-| REQ-006 | EPIC-002 | PBI-010, PBI-011 | — | — |
-| REQ-007 | EPIC-002 | PBI-010 | — | — |
+| REQ-006 | EPIC-002 | PBI-010, PBI-011 | — | `VisionAssets.Persistence`, `Migrations/001_initial.sql` |
+| REQ-007 | EPIC-002 | PBI-010 | — | `inventory_run`, `AgentWorker.RecordInventoryRunAsync` |
 | REQ-008 | EPIC-003 | PBI-021 | — | — |
 | REQ-009 | EPIC-003 | PBI-023 | — | — |
 | REQ-010 | EPIC-005 | PBI-040 | — | — |

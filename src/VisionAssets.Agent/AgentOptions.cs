@@ -12,4 +12,9 @@ public sealed class AgentOptions
     /// Diretório de logs. Se vazio: em Development usa ./Logs; em produção usa %ProgramData%\VisionAssets\Logs.
     /// </summary>
     public string? LogsDirectory { get; set; }
+
+    /// <summary>
+    /// Caminho completo do ficheiro SQLite. Se vazio: Development em ./Data/visionassets.db; produção em %ProgramData%\VisionAssets\Data\visionassets.db.
+    /// </summary>
+    public string? DatabasePath { get; set; }
 }

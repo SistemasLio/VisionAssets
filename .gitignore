@@ -53,4 +53,5 @@ docs/.vitepress/dist
 
 # Agente — logs locais (Development)
 src/**/Logs/
+src/**/Data/
 node_modules
